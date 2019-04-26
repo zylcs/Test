@@ -98,23 +98,25 @@
 
 
 
-  <meta name="description" content="行云流水,字里行间">
-<meta property="og:type" content="website">
-<meta property="og:title" content="黑白">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="题目描述： 表达式求值是进行数据处理的最基本操作。请编写程序完成一个简单算术表达式的求值。要求如下： （1） 运算符包括：+、-、*、/、^(乘方)、括号 （2）运算量为数值常量，例如1位整数、多位整数、实数等； 输入：一行，即表达式，以“=”结束。例如： 5*(8-3)+6/5=  输出：一行，即表达式的值。结果值为整数时输出为整数，如果有小数时保留5位小数。 26.20000  解题思路： 该">
+<meta name="keywords" content="c++,栈">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构 —— 简单算术表达式计算 ">
+<meta property="og:url" content="http://yoursite.com/2019/04/26/简单表达式计算/index.html">
 <meta property="og:site_name" content="黑白">
-<meta property="og:description" content="行云流水,字里行间">
+<meta property="og:description" content="题目描述： 表达式求值是进行数据处理的最基本操作。请编写程序完成一个简单算术表达式的求值。要求如下： （1） 运算符包括：+、-、*、/、^(乘方)、括号 （2）运算量为数值常量，例如1位整数、多位整数、实数等； 输入：一行，即表达式，以“=”结束。例如： 5*(8-3)+6/5=  输出：一行，即表达式的值。结果值为整数时输出为整数，如果有小数时保留5位小数。 26.20000  解题思路： 该">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-04-26T13:31:21.540Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="黑白">
-<meta name="twitter:description" content="行云流水,字里行间">
+<meta name="twitter:title" content="数据结构 —— 简单算术表达式计算 ">
+<meta name="twitter:description" content="题目描述： 表达式求值是进行数据处理的最基本操作。请编写程序完成一个简单算术表达式的求值。要求如下： （1） 运算符包括：+、-、*、/、^(乘方)、括号 （2）运算量为数值常量，例如1位整数、多位整数、实数等； 输入：一行，即表达式，以“=”结束。例如： 5*(8-3)+6/5=  输出：一行，即表达式的值。结果值为整数时输出为整数，如果有小数时保留5位小数。 26.20000  解题思路： 该">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/26/简单表达式计算/">
 
 
 
@@ -124,7 +126,7 @@
   };
 </script>
 
-  <title>黑白</title>
+  <title>数据结构 —— 简单算术表达式计算  | 黑白</title>
   
 
 
@@ -172,8 +174,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -211,7 +212,7 @@
         
         
           
-          <li class="menu-item menu-item-home menu-item-active">
+          <li class="menu-item menu-item-home">
 
     
     
@@ -353,9 +354,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -387,10 +388,8 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/04/26/简单表达式计算/" class="post-title-link" itemprop="url">数据结构 —— 简单算术表达式计算 </a>
+          <h1 class="post-title" itemprop="name headline">数据结构 —— 简单算术表达式计算 
+
               
             
           </h1>
@@ -454,6 +453,13 @@
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
 
           
 
@@ -472,9 +478,7 @@
       
 
       
-        
-          
-            <h2 id="题目描述：">题目描述：</h2>
+        <h2 id="题目描述：">题目描述：</h2>
 <p>表达式求值是进行数据处理的最基本操作。请编写程序完成一个简单算术表达式的求值。要求如下：</p>
 <p>（1） 运算符包括：+、-、*、/、^(乘方)、括号
 （2）运算量为数值常量，例如1位整数、多位整数、实数等；
@@ -490,8 +494,6 @@
 <p>遍历表达式，遇到运算符就考虑将其压入运算符栈中（预置一个#号，并设定其优先级最低），在压入之前比较栈中已存在的运算符，若比栈中已有运算符优先级大就压入栈中，否则将栈中运算符弹出，并从操作数栈弹出两个操作数进行运算并将结果压入操作数栈中，之后再与栈中剩余的运算符比较优先级，重复上述操作。</p>
 <h2 id="详细代码：">详细代码：</h2>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"bits/stdc++.h"</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">get_level</span><span class="params">(<span class="keyword">char</span> ch)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 获取运算符优先级</span></span><br><span class="line">    <span class="keyword">switch</span> (ch) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'#'</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'+'</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'-'</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'*'</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'/'</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'^'</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">3</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'('</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="string">')'</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">4</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">operate</span><span class="params">(<span class="keyword">char</span> ch, <span class="keyword">double</span> a, <span class="keyword">double</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//进行算术运算</span></span><br><span class="line">    <span class="keyword">switch</span> (ch) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'+'</span>:</span><br><span class="line">            <span class="keyword">return</span> a + b;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'-'</span>:</span><br><span class="line">            <span class="keyword">return</span> a - b;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'*'</span>:</span><br><span class="line">            <span class="keyword">return</span> a * b;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'/'</span>:</span><br><span class="line">            <span class="keyword">return</span> a / b;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'^'</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">pow</span>(a, b);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">strtodouble</span><span class="params">(<span class="built_in">string</span> num)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 将字符串转double类型 亦可用c++11 内置的 stod() 函数代替</span></span><br><span class="line">    <span class="keyword">double</span> number = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> flag = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">double</span> pos = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> i = num.length() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">        <span class="keyword">if</span> (flag == <span class="number">0</span> &amp;&amp; num[i] != <span class="string">'.'</span>) &#123;</span><br><span class="line">            number += (<span class="keyword">int</span>(num[i]) - <span class="number">48</span>) * <span class="built_in">pow</span>(<span class="number">10</span>, num.length() - <span class="number">1</span> - i);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (flag &amp;&amp; num[i] != <span class="string">'.'</span>) &#123;</span><br><span class="line">            number += (<span class="keyword">int</span>(num[i]) - <span class="number">48</span>) * <span class="built_in">pow</span>(<span class="number">10</span>, num.length() - <span class="number">1</span> - i - <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (num[i] == <span class="string">'.'</span>) &#123;</span><br><span class="line">            flag = <span class="number">1</span>;</span><br><span class="line">            pos = <span class="built_in">pow</span>(<span class="number">10</span>, num.length() - <span class="number">1</span> - i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (flag) number /= pos;</span><br><span class="line">    <span class="keyword">return</span> number;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">output</span><span class="params">(<span class="keyword">double</span> a)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 输出格式</span></span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> b = a;</span><br><span class="line">    <span class="keyword">if</span> (a - b == <span class="number">0</span>)</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; a &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%.5f\n"</span>, a);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">cal</span><span class="params">(<span class="built_in">stack</span>&lt;<span class="keyword">double</span>&gt; &amp;stack1, <span class="built_in">stack</span>&lt;<span class="keyword">char</span>&gt; &amp;stack2, <span class="keyword">char</span> c)</span> </span>&#123;  <span class="comment">//传入栈引用 保证能被修改</span></span><br><span class="line">    <span class="comment">// 表达式求值</span></span><br><span class="line">    <span class="keyword">if</span> (get_level(stack2.top()) &lt; get_level(c)) &#123;</span><br><span class="line">        <span class="comment">//比栈顶部运算符优先级高 入栈（不为右括号） 要保证能将括号内算式运算进行完毕 括号不参与运算 仅改变优先级</span></span><br><span class="line">        <span class="keyword">if</span> (c != <span class="string">')'</span>)</span><br><span class="line">            stack2.push(c);</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">char</span> ch = stack2.top();</span><br><span class="line">            stack2.pop();</span><br><span class="line">            <span class="keyword">double</span> num1 = stack1.top();</span><br><span class="line">            stack1.pop();</span><br><span class="line">            <span class="keyword">double</span> num2 = stack1.top();</span><br><span class="line">            stack1.pop();</span><br><span class="line">            stack1.push(operate(ch, num2, num1));</span><br><span class="line">            cal(stack1, stack2, c);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (get_level(stack2.top()) == get_level(c) &amp;&amp;</span><br><span class="line">               (stack2.top() == <span class="string">'#'</span> || (stack2.top() == <span class="string">'('</span>) &amp;&amp; c == <span class="string">')'</span>))</span><br><span class="line">        stack2.pop();  <span class="comment">// 符号匹配 弹出</span></span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (!stack2.empty() &amp;&amp; (stack2.top() != <span class="string">'('</span>)) &#123;</span><br><span class="line">            <span class="comment">// 优先级低于栈顶运算符 且栈顶运算符不为左括号 括号不参与具体运算 仅改变优先级</span></span><br><span class="line">            <span class="keyword">char</span> ch = stack2.top();</span><br><span class="line">            stack2.pop();</span><br><span class="line">            <span class="keyword">double</span> num1 = stack1.top();</span><br><span class="line">            stack1.pop();</span><br><span class="line">            <span class="keyword">double</span> num2 = stack1.top();</span><br><span class="line">            stack1.pop();</span><br><span class="line">            stack1.push(operate(ch, num2, num1));</span><br><span class="line">            cal(stack1, stack2, c);</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!stack2.empty() &amp;&amp; stack2.top() == <span class="string">'('</span>) stack2.push(c);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">string</span> st;</span><br><span class="line">    <span class="built_in">string</span> num;</span><br><span class="line">    <span class="built_in">stack</span>&lt;<span class="keyword">double</span>&gt; stack1; <span class="comment">//操作数栈</span></span><br><span class="line">    <span class="built_in">stack</span>&lt;<span class="keyword">char</span>&gt; stack2; <span class="comment">// 运算符栈</span></span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; st;</span><br><span class="line">    <span class="keyword">double</span> sum = <span class="number">0</span>;</span><br><span class="line">    stack2.push(<span class="string">'#'</span>);  <span class="comment">// 预置#</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; st.length(); ++i) &#123;  <span class="comment">// 遍历表达式</span></span><br><span class="line">        <span class="keyword">if</span> (st[i] == <span class="string">'+'</span> || st[i] == <span class="string">'-'</span> || st[i] == <span class="string">'*'</span> || st[i] == <span class="string">'/'</span> || st[i] == <span class="string">'^'</span> || st[i] == <span class="string">'('</span> ||</span><br><span class="line">            st[i] == <span class="string">')'</span> || st[i] == <span class="string">'='</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!num.empty()) &#123;</span><br><span class="line">                stack1.push(strtodouble(num));</span><br><span class="line">                num.clear();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (st[i] != <span class="string">'='</span>) cal(stack1, stack2, st[i]);</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (st[i] == <span class="string">'='</span>) cal(stack1, stack2, <span class="string">'#'</span>);  <span class="comment">// 表达式结束时 向运算符栈压入#</span></span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">else</span> num += st[i];</span><br><span class="line">    &#125;</span><br><span class="line">    sum = stack1.top();</span><br><span class="line">    output(sum);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          
-        
       
     </div>
 
@@ -507,171 +509,91 @@
       
     
     
+      <div>
+        <div id="reward-container">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
 
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.png" alt="拾一 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>拾一</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://yoursite.com/2019/04/26/简单表达式计算/" title="数据结构 —— 简单算术表达式计算 ">http://yoursite.com/2019/04/26/简单表达式计算/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
     
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/17/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="拾一">
-      <meta itemprop="description" content="行云流水,字里行间">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="黑白">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/17/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-03-17 23:05:30" itemprop="dateCreated datePublished" datetime="2019-03-17T23:05:30+08:00">2019-03-17</time>
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/c/" rel="tag"># c++</a>
           
-            
-            
+            <a href="/tags/栈/" rel="tag"># 栈</a>
           
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="quick-start">Quick Start</h2>
-<h3 id="create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/17/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
       
     </footer>
   </div>
@@ -681,14 +603,20 @@
   </article>
 
 
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MzIzMS8xOTc3Nw=="></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -708,8 +636,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -831,6 +768,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述："><span class="nav-number">1.</span> <span class="nav-text">题目描述：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路："><span class="nav-number">2.</span> <span class="nav-text">解题思路：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#具体做法："><span class="nav-number">3.</span> <span class="nav-text">具体做法：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#详细代码："><span class="nav-number">4.</span> <span class="nav-text">详细代码：</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -987,6 +941,10 @@
 
 
   
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
 
   
 
@@ -1002,6 +960,23 @@
 
   
 
+
+  
+    <script>
+  window.livereOptions = {
+    refer: '2019/04/26/简单表达式计算/'
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
+
+  
 
 
   
